@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AirPortWebApi_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -181,15 +181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="GetAvailableHangarsDetails1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="FromDate" Type="date" Mode="In" />
-          <Parameter Name="ToDate" Type="date" Mode="In" />
-        </Function>
-        <Function Name="GetAvailablePlanes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="SelectedFromDate" Type="date" Mode="In" />
-          <Parameter Name="SelectedToDate" Type="date" Mode="In" />
-        </Function>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="AirPortWebApi_dbModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HangerDetails" EntityType="Self.HangerDetails" Schema="dbo" store:Type="Tables" />
@@ -231,7 +223,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AirPortWebApi_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -422,7 +414,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AirportManagementEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AirPortWebApi_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Bookings" EntityType="Self.Booking" />
           <EntitySet Name="HangerDetails" EntityType="Self.HangerDetail" />
@@ -459,40 +451,15 @@
             <End Role="Owner" EntitySet="Owners" />
             <End Role="Planes" EntitySet="Planes" />
           </AssociationSet>
-          <FunctionImport Name="GetAvailableHangarsDetails1" ReturnType="Collection(Model.GetAvailableHangarsDetails1_Result)">
-            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="GetAvailablePlanes" ReturnType="Collection(Model.GetAvailablePlanes_Result)">
-            <Parameter Name="SelectedFromDate" Mode="In" Type="DateTime" />
-            <Parameter Name="SelectedToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="GetAvailableHangarsDetails1_Result">
-          <Property Type="String" Name="HangerId" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="HangerLocation" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="HangerCapacity" Nullable="true" />
-          <Property Type="String" Name="ManagerName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="SSNo" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="GetAvailablePlanes_Result">
-          <Property Type="String" Name="PlaneId" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ManufacturerName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="RegNo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ModelNo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="PlaneName" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Capacity" Nullable="true" />
-          <Property Type="Int32" Name="OwnerId" Nullable="true" />
-          <Property Type="Int32" Name="Id" Nullable="true" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AirportManagementEntities2">
+        <EntityContainerMapping StorageEntityContainer="AirPortWebApi_dbModelStoreContainer" CdmEntityContainer="AirPortWebApi_dbEntities">
           <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="Model.Address">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="HouseNo" ColumnName="HouseNo" />
@@ -506,7 +473,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bookings">
-            <EntityTypeMapping TypeName="Model.Booking">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Booking">
               <MappingFragment StoreEntitySet="Bookings">
                 <ScalarProperty Name="BookingId" ColumnName="BookingId" />
                 <ScalarProperty Name="HangerId" ColumnName="HangerId" />
@@ -517,7 +484,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HangerDetails">
-            <EntityTypeMapping TypeName="Model.HangerDetail">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.HangerDetail">
               <MappingFragment StoreEntitySet="HangerDetails">
                 <ScalarProperty Name="HangerId" ColumnName="HangerId" />
                 <ScalarProperty Name="HangerLocation" ColumnName="HangerLocation" />
@@ -528,7 +495,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logins">
-            <EntityTypeMapping TypeName="Model.Login">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Login">
               <MappingFragment StoreEntitySet="Login">
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -537,7 +504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Managers">
-            <EntityTypeMapping TypeName="Model.Manager">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Manager">
               <MappingFragment StoreEntitySet="Manager">
                 <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
                 <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
@@ -552,7 +519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="Model.Owner">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Owner">
               <MappingFragment StoreEntitySet="Owner">
                 <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -562,7 +529,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pilots">
-            <EntityTypeMapping TypeName="Model.Pilot">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Pilot">
               <MappingFragment StoreEntitySet="Pilot">
                 <ScalarProperty Name="PilotId" ColumnName="PilotId" />
                 <ScalarProperty Name="PilotName" ColumnName="PilotName" />
@@ -578,7 +545,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Planes">
-            <EntityTypeMapping TypeName="Model.Plane">
+            <EntityTypeMapping TypeName="AirPortWebApi_dbModel.Plane">
               <MappingFragment StoreEntitySet="Planes">
                 <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
                 <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
@@ -591,31 +558,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetAvailableHangarsDetails1" FunctionName="Model.Store.GetAvailableHangarsDetails1">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Model.GetAvailableHangarsDetails1_Result">
-                <ScalarProperty Name="HangerId" ColumnName="HangerId" />
-                <ScalarProperty Name="HangerLocation" ColumnName="HangerLocation" />
-                <ScalarProperty Name="HangerCapacity" ColumnName="HangerCapacity" />
-                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
-                <ScalarProperty Name="SSNo" ColumnName="SSNo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAvailablePlanes" FunctionName="Model.Store.GetAvailablePlanes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Model.GetAvailablePlanes_Result">
-                <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
-                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
-                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
-                <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
-                <ScalarProperty Name="PlaneName" ColumnName="PlaneName" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

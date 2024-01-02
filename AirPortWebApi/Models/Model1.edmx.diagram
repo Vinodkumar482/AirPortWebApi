@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c11b5db9ffcf4b268ec71d1d993feb1b" Name="Diagram1">
-        <EntityTypeShape EntityType="AirportManagementModel.Address" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Booking" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.HangerDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Login" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Manager" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Owner" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Pilot" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportManagementModel.Plane" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <AssociationConnector Association="AirportManagementModel.FK_Manager_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_Owner_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_Pilot_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_Bookings_HangerDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_Bookings_Planes" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_HangerDetails_Manager" ManuallyRouted="false" />
-        <AssociationConnector Association="AirportManagementModel.FK_Planes_Owner" ManuallyRouted="false" />
+      <Diagram DiagramId="373525d948e54d568c3fda631ff8acaa" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Address" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Booking" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.HangerDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Login" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Manager" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Owner" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pilot" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Plane" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Manager_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Owner_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Pilot_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Bookings_HangerDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Bookings_Planes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_HangerDetails_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Planes_Owner" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

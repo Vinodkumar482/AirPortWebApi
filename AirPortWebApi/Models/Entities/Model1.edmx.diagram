@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72cb28c050b848bb9ecf846ed531ae32" Name="Diagram1">
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Address" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Booking" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.HangerDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Login" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Manager" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Owner" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Pilot" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirPortWebApi_dbModel.Plane" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Manager_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Owner_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Pilot_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Bookings_HangerDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Bookings_Planes" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_HangerDetails_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="AirPortWebApi_dbModel.FK_Planes_Owner" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
